@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist Sans", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-brand: #3b82f6;
+
+  /* Status Colors */
+  --color-status-pending: var(--status-pending);
+  --color-status-pending-foreground: var(--status-pending-foreground);
+  --color-status-pending-border: var(--status-pending-border);
+  
+  --color-status-processing: var(--status-processing);
+  --color-status-processing-foreground: var(--status-processing-foreground);
+  --color-status-processing-border: var(--status-processing-border);
+  
+  --color-status-completed: var(--status-completed);
+  --color-status-completed-foreground: var(--status-completed-foreground);
+  --color-status-completed-border: var(--status-completed-border);
+  
+  --color-status-error: var(--status-error);
+  --color-status-error-foreground: var(--status-error-foreground);
+  --color-status-error-border: var(--status-error-border);
+
+  --radius-4xl: 2rem;
+  --radius-3xl: 1.5rem;
+  --radius-2xl: 1rem;
+  --radius-xl: 0.75rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --card: #f4f4f5;
+    --card-foreground: #09090b;
+    --popover: #ffffff;
+    --popover-foreground: #09090b;
+    --primary: #18181b;
+    --primary-foreground: #fafafa;
+    --secondary: #f4f4f5;
+    --secondary-foreground: #18181b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --accent: #f4f4f5;
+    --accent-foreground: #18181b;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #18181b;
+    --radius: 0.5rem;
+
+    /* Status - Light Mode */
+    --status-pending: rgba(228, 228, 231, 0.4);
+    --status-pending-foreground: #71717a;
+    --status-pending-border: #e4e4e7;
+    
+    --status-processing: rgba(59, 130, 246, 0.1);
+    --status-processing-foreground: #3b82f6;
+    --status-processing-border: rgba(59, 130, 246, 0.2);
+    
+    --status-completed: rgba(16, 185, 129, 0.1);
+    --status-completed-foreground: #10b981;
+    --status-completed-border: rgba(16, 185, 129, 0.2);
+    
+    --status-error: rgba(239, 68, 68, 0.1);
+    --status-error-foreground: #ef4444;
+    --status-error-border: rgba(239, 68, 68, 0.2);
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --card: #18181b;
+    --card-foreground: #fafafa;
+    --popover: #09090b;
+    --popover-foreground: #fafafa;
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
+    --secondary: #18181b;
+    --secondary-foreground: #fafafa;
+    --muted: #18181b;
+    --muted-foreground: #a1a1aa;
+    --accent: #18181b;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #d4d4d8;
+
+    /* Status - Dark Mode */
+    --status-pending: rgba(39, 39, 42, 0.3);
+    --status-pending-foreground: #71717a;
+    --status-pending-border: #27272a;
+    
+    --status-processing: rgba(96, 165, 250, 0.1);
+    --status-processing-foreground: #60a5fa;
+    --status-processing-border: rgba(96, 165, 250, 0.2);
+    
+    --status-completed: rgba(52, 211, 153, 0.1);
+    --status-completed-foreground: #34d399;
+    --status-completed-border: rgba(52, 211, 153, 0.2);
+    
+    --status-error: rgba(248, 113, 113, 0.1);
+    --status-error-foreground: #f87171;
+    --status-error-border: rgba(248, 113, 113, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}

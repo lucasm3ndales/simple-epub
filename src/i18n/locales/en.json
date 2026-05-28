@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "SimpleEPUB",
+    "description": "Convert manga, comics, and books to EPUB",
+    "github": "GitHub"
+  },
+  "header": {
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Customize your application preferences.",
+    "theme": {
+      "label": "Theme",
+      "placeholder": "Select theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "output": {
+      "label": "Output Folder",
+      "placeholder": "Default output folder",
+      "browse": "Browse folder"
+    },
+    "language": {
+      "label": "Language",
+      "placeholder": "Select language",
+      "en": "English",
+      "pt": "Portuguese"
+    }
+  },
+  "queue": {
+    "title": "Queue",
+    "empty": "No files in queue",
+    "dropzone": {
+      "title": "Drop files here",
+      "supported": "PDF • CBZ • ZIP",
+      "browse": "or click to browse"
+    }
+  },
+  "actions": {
+    "convert": "Convert {{count}} Files",
+    "cancel": "Stop Conversion",
+    "queue_summary": "{{count}} files • {{size}}",
+    "ready_count": "{{count}} files ready for conversion",
+    "ready_count_plural": "{{count}} files ready for conversion",
+    "clear": "Clear queue"
+  }
+}

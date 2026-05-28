@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "SimpleEPUB",
+    "description": "Converta mangás, quadrinhos e livros para EPUB",
+    "github": "GitHub"
+  },
+  "header": {
+    "settings": "Configurações"
+  },
+  "settings": {
+    "title": "Configurações",
+    "description": "Personalize suas preferências do aplicativo.",
+    "theme": {
+      "label": "Tema",
+      "placeholder": "Selecione o tema",
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema"
+    },
+    "output": {
+      "label": "Pasta de Saída",
+      "placeholder": "Pasta de saída padrão",
+      "browse": "Procurar pasta"
+    },
+    "language": {
+      "label": "Idioma",
+      "placeholder": "Selecione o idioma",
+      "en": "Inglês",
+      "pt": "Português"
+    }
+  },
+  "queue": {
+    "title": "Fila",
+    "empty": "Nenhum arquivo na fila",
+    "dropzone": {
+      "title": "Arraste arquivos aqui",
+      "supported": "PDF • CBZ • ZIP",
+      "browse": "ou clique para procurar"
+    }
+  },
+  "actions": {
+    "convert": "Converter {{count}} Arquivos",
+    "cancel": "Parar Conversão",
+    "queue_summary": "{{count}} arquivos • {{size}}",
+    "ready_count": "{{count}} arquivo pronto para conversão",
+    "ready_count_plural": "{{count}} arquivos prontos para conversão",
+    "clear": "Limpar fila"
+  }
+}
