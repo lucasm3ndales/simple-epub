@@ -24,9 +24,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   
-  --color-brand: #3b82f6;
+  --color-brand: #6366f1; /* Indigo 500 para um look premium */
 
-  /* Status Colors */
+  /* Status Colors - Refined for both themes */
   --color-status-pending: var(--status-pending);
   --color-status-pending-foreground: var(--status-pending-foreground);
   --color-status-pending-border: var(--status-pending-border);
@@ -54,9 +54,10 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
+    /* Soft Light Mode - Eye Comfort (#f9f9fb) */
+    --background: #f9f9fb;
     --foreground: #09090b;
-    --card: #f4f4f5;
+    --card: #ffffff;
     --card-foreground: #09090b;
     --popover: #ffffff;
     --popover-foreground: #09090b;
@@ -73,30 +74,31 @@
     --border: #e4e4e7;
     --input: #e4e4e7;
     --ring: #18181b;
-    --radius: 0.5rem;
+    --radius: 0.6rem;
 
-    /* Status - Light Mode */
-    --status-pending: rgba(228, 228, 231, 0.4);
+    /* Status Colors - Light Mode (Premium desaturated) */
+    --status-pending: #f4f4f5;
     --status-pending-foreground: #71717a;
     --status-pending-border: #e4e4e7;
     
-    --status-processing: rgba(59, 130, 246, 0.1);
-    --status-processing-foreground: #3b82f6;
-    --status-processing-border: rgba(59, 130, 246, 0.2);
+    --status-processing: #eef2ff;
+    --status-processing-foreground: #4f46e5;
+    --status-processing-border: #c7d2fe;
     
-    --status-completed: rgba(16, 185, 129, 0.1);
-    --status-completed-foreground: #10b981;
-    --status-completed-border: rgba(16, 185, 129, 0.2);
+    --status-completed: #ecfdf5;
+    --status-completed-foreground: #059669;
+    --status-completed-border: #a7f3d0;
     
-    --status-error: rgba(239, 68, 68, 0.1);
-    --status-error-foreground: #ef4444;
-    --status-error-border: rgba(239, 68, 68, 0.2);
+    --status-error: #fef2f2;
+    --status-error-foreground: #dc2626;
+    --status-error-border: #fecaca;
   }
 
   .dark {
+    /* Deep Dark Mode - Studio Zinc (#09090b) */
     --background: #09090b;
     --foreground: #fafafa;
-    --card: #18181b;
+    --card: #111113;
     --card-foreground: #fafafa;
     --popover: #09090b;
     --popover-foreground: #fafafa;
@@ -110,26 +112,26 @@
     --accent-foreground: #fafafa;
     --destructive: #7f1d1d;
     --destructive-foreground: #fafafa;
-    --border: #27272a;
-    --input: #27272a;
-    --ring: #d4d4d8;
+    --border: #1e1e21;
+    --input: #1e1e21;
+    --ring: #3f3f46;
 
-    /* Status - Dark Mode */
-    --status-pending: rgba(39, 39, 42, 0.3);
-    --status-pending-foreground: #71717a;
+    /* Status Colors - Dark Mode (Glow Effect) */
+    --status-pending: #18181b;
+    --status-pending-foreground: #a1a1aa;
     --status-pending-border: #27272a;
     
-    --status-processing: rgba(96, 165, 250, 0.1);
-    --status-processing-foreground: #60a5fa;
-    --status-processing-border: rgba(96, 165, 250, 0.2);
+    --status-processing: rgba(99, 102, 241, 0.15);
+    --status-processing-foreground: #818cf8;
+    --status-processing-border: rgba(99, 102, 241, 0.3);
     
-    --status-completed: rgba(52, 211, 153, 0.1);
+    --status-completed: rgba(16, 185, 129, 0.1);
     --status-completed-foreground: #34d399;
-    --status-completed-border: rgba(52, 211, 153, 0.2);
+    --status-completed-border: rgba(16, 185, 129, 0.2);
     
-    --status-error: rgba(248, 113, 113, 0.1);
+    --status-error: rgba(239, 68, 68, 0.1);
     --status-error-foreground: #f87171;
-    --status-error-border: rgba(248, 113, 113, 0.2);
+    --status-error-border: rgba(239, 68, 68, 0.2);
   }
 }
 
@@ -139,5 +141,6 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }

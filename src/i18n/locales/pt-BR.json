@@ -9,7 +9,11 @@
   },
   "settings": {
     "title": "Configurações",
-    "description": "Personalize suas preferências do aplicativo.",
+    "description": "Personalize suas preferências do aplicativo e o motor de conversão.",
+    "sections": {
+      "general": "Geral",
+      "conversion": "Motor de Conversão"
+    },
     "theme": {
       "label": "Tema",
       "placeholder": "Selecione o tema",
@@ -27,6 +31,16 @@
       "placeholder": "Selecione o idioma",
       "en": "Inglês",
       "pt": "Português"
+    },
+    "presets": {
+      "label": "Preset de Dispositivo",
+      "placeholder": "Selecione o dispositivo"
+    },
+    "compression": {
+      "label": "Nível de Compressão",
+      "low": "Baixo",
+      "medium": "Médio",
+      "high": "Alto"
     }
   },
   "queue": {
@@ -34,7 +48,7 @@
     "empty": "Nenhum arquivo na fila",
     "dropzone": {
       "title": "Arraste arquivos aqui",
-      "supported": "PDF • CBZ • ZIP",
+      "supported": "PDF • CBZ • ZIP • EPUB",
       "browse": "ou clique para procurar"
     }
   },

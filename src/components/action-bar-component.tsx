@@ -2,14 +2,25 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { X, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useQueueStore } from "@/store/queue-store";
 
 export function ActionBarComponent() {
   const { t } = useTranslation();
+  const { items, isConverting } = useQueueStore();
   
-  // Mock data for now, will be connected to store later
-  const filesCount = 12;
-  const totalSize = "1.4 GB";
-  const isConverting = false;
+  const filesCount = items.length;
+  
+  const totalSizeBytes = items.reduce((acc, item) => acc + item.size, 0);
+  
+  const formatSize = (bytes: number) => {
+    if (bytes === 0) return "0 B";
+    const k = 1024;
+    const sizes = ["B", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return `${parseFloat((bytes / k ** i).toFixed(2))} ${sizes[i]}`;
+  };
+
+  const totalSize = formatSize(totalSizeBytes);
 
   if (filesCount === 0 && !isConverting) return null;
 
@@ -18,7 +29,7 @@ export function ActionBarComponent() {
       <div className="max-w-4xl mx-auto w-full flex justify-between items-center gap-4">
         <div className="text-sm text-muted-foreground font-sans">
           {t('actions.queue_summary', { count: filesCount, size: totalSize }).split('•').map((part, i) => (
-            <span key={Math.random()} className={cn(i === 0 || i === 1 ? "font-mono" : "")}>
+            <span key={i} className={cn(i === 0 || i === 1 ? "font-mono" : "")}>
               {part}{i === 0 ? " • " : ""}
             </span>
           ))}

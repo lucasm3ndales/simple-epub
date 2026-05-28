@@ -9,7 +9,11 @@
   },
   "settings": {
     "title": "Settings",
-    "description": "Customize your application preferences.",
+    "description": "Customize your application preferences and conversion engine.",
+    "sections": {
+      "general": "General",
+      "conversion": "Conversion Engine"
+    },
     "theme": {
       "label": "Theme",
       "placeholder": "Select theme",
@@ -27,6 +31,16 @@
       "placeholder": "Select language",
       "en": "English",
       "pt": "Portuguese"
+    },
+    "presets": {
+      "label": "Device Preset",
+      "placeholder": "Select device"
+    },
+    "compression": {
+      "label": "Compression Level",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
     }
   },
   "queue": {
@@ -34,7 +48,7 @@
     "empty": "No files in queue",
     "dropzone": {
       "title": "Drop files here",
-      "supported": "PDF • CBZ • ZIP",
+      "supported": "PDF • CBZ • ZIP • EPUB",
       "browse": "or click to browse"
     }
   },
