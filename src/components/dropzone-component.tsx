@@ -12,9 +12,10 @@ export function DropzoneComponent() {
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     acceptedFiles.forEach((file) => {
+      const filePath = (file as File & { path?: string }).path || file.name;
       addItem({
         name: file.name,
-        path: (file as any).path || file.name,
+        path: filePath,
         size: file.size,
       });
     });
@@ -39,41 +40,43 @@ export function DropzoneComponent() {
     <div
       {...getRootProps()}
       className={cn(
-        "group relative h-64 w-full border-2 border-dashed rounded-2xl flex flex-col items-center justify-center transition-all duration-300 cursor-pointer overflow-hidden",
+        "group relative h-72 w-full border-2 border-dashed rounded-3xl flex flex-col items-center justify-center transition-all duration-500 cursor-pointer overflow-hidden",
         isDragActive 
-          ? "border-brand bg-brand/5 scale-[1.01]" 
-          : "border-border bg-muted/30 hover:bg-muted/50 hover:border-muted-foreground/50",
+          ? "border-brand bg-brand/5 scale-[1.01] shadow-2xl shadow-brand/10" 
+          : "border-border bg-secondary/20 hover:bg-brand/5 hover:border-brand/40",
         isConverting && "opacity-50 cursor-not-allowed"
       )}
     >
       <input {...getInputProps()} />
       
-      <div className="relative z-10 flex flex-col items-center gap-4">
+      <div className="relative z-10 flex flex-col items-center gap-6">
         <div className={cn(
-          "p-4 rounded-full bg-background border border-border shadow-sm transition-transform duration-500",
-          isDragActive ? "scale-110 rotate-12 text-brand" : "group-hover:-translate-y-1"
+          "p-6 rounded-3xl bg-background border border-border shadow-lg transition-all duration-500 group-hover:shadow-brand/20",
+          isDragActive ? "scale-110 rotate-6 text-brand border-brand/50" : "group-hover:-translate-y-2 group-hover:border-brand/30"
         )}>
           {isDragActive ? (
-            <FileUp className="size-8" />
+            <FileUp className="size-10" />
           ) : (
-            <Upload className="size-8 text-muted-foreground" />
+            <Upload className="size-10 text-muted-foreground transition-colors group-hover:text-brand" />
           )}
         </div>
         
-        <div className="text-center space-y-1">
-          <p className="text-xl font-semibold tracking-tight">
+        <div className="text-center space-y-2">
+          <p className="text-2xl font-bold tracking-tight text-foreground group-hover:text-brand transition-colors duration-300">
             {isDragActive ? t('queue.dropzone.title') : t('queue.dropzone.title')}
           </p>
-          <p className="text-sm text-muted-foreground font-mono uppercase tracking-widest">
-            {t('queue.dropzone.supported')}
-          </p>
-          <p className="text-xs text-muted-foreground/60 italic pt-2">
-            {t('queue.dropzone.browse')}
-          </p>
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-[10px] text-brand font-bold font-mono uppercase tracking-[0.3em] bg-brand/5 px-4 py-1 rounded-full border border-brand/10">
+              {t('queue.dropzone.supported')}
+            </p>
+            <p className="text-xs text-muted-foreground/60 italic font-medium pt-3 group-hover:text-muted-foreground transition-colors">
+              {t('queue.dropzone.browse')}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-linear-to-b from-transparent to-muted/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent to-brand/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
     </div>
   );
 }

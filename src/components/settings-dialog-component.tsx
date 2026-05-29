@@ -1,4 +1,4 @@
-import { Settings, Moon, Sun, Monitor, FolderOpen, Smartphone, Cpu } from "lucide-react";
+import { Settings, Moon, Sun, Monitor, FolderOpen, Cpu } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -59,40 +59,40 @@ export function SettingsDialogComponent() {
         </DialogHeader>
         
         <div className="grid gap-6 py-4">
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
-              <Monitor className="size-4" />
+          <div className="space-y-5">
+            <h4 className="text-xs font-bold text-brand uppercase tracking-[0.2em] flex items-center gap-2.5">
+              <Monitor className="size-3.5" />
               {t('settings.sections.general')}
             </h4>
             
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="theme">{t('settings.theme.label')}</Label>
+                <Label htmlFor="theme" className="text-xs font-semibold px-1">{t('settings.theme.label')}</Label>
                 <Select
                   value={theme}
                   onValueChange={(v) =>
                     setTheme(v as "light" | "dark" | "system")
                   }
                 >
-                  <SelectTrigger id="theme">
+                  <SelectTrigger id="theme" className="w-full">
                     <SelectValue placeholder={t('settings.theme.placeholder')} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="light">
                       <div className="flex items-center gap-2">
-                        <Sun className="h-4 w-4" />
+                        <Sun className="size-4 text-amber-500" />
                         <span>{t('settings.theme.light')}</span>
                       </div>
                     </SelectItem>
                     <SelectItem value="dark">
                       <div className="flex items-center gap-2">
-                        <Moon className="h-4 w-4" />
+                        <Moon className="size-4 text-indigo-400" />
                         <span>{t('settings.theme.dark')}</span>
                       </div>
                     </SelectItem>
                     <SelectItem value="system">
                       <div className="flex items-center gap-2">
-                        <Monitor className="h-4 w-4" />
+                        <Monitor className="size-4 text-slate-400" />
                         <span>{t('settings.theme.system')}</span>
                       </div>
                     </SelectItem>
@@ -101,9 +101,9 @@ export function SettingsDialogComponent() {
               </div>
               
               <div className="grid gap-2">
-                <Label htmlFor="language">{t('settings.language.label')}</Label>
+                <Label htmlFor="language" className="text-xs font-semibold px-1">{t('settings.language.label')}</Label>
                 <Select value={language} onValueChange={handleLanguageChange}>
-                  <SelectTrigger id="language">
+                  <SelectTrigger id="language" className="w-full">
                     <SelectValue placeholder={t('settings.language.placeholder')} />
                   </SelectTrigger>
                   <SelectContent>
@@ -115,7 +115,7 @@ export function SettingsDialogComponent() {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="folder">{t('settings.output.label')}</Label>
+              <Label htmlFor="folder" className="text-xs font-semibold px-1">{t('settings.output.label')}</Label>
               <div className="flex gap-2">
                 <Input
                   id="folder"
@@ -128,30 +128,29 @@ export function SettingsDialogComponent() {
                   variant="outline"
                   size="icon"
                   title={t('settings.output.browse')}
-                  className="shrink-0"
+                  className="shrink-0 rounded-full cursor-pointer hover:border-brand/50 hover:text-brand"
                 >
-                  <FolderOpen className="h-4 w-4" />
+                  <FolderOpen className="size-4" />
                 </Button>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-border" />
+          <div className="h-px bg-border/50 my-2" />
 
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
-              <Cpu className="size-4" />
+          <div className="space-y-5">
+            <h4 className="text-xs font-bold text-brand uppercase tracking-[0.2em] flex items-center gap-2.5">
+              <Cpu className="size-3.5" />
               {t('settings.sections.conversion')}
             </h4>
             
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               <div className="grid gap-2">
-                <Label htmlFor="preset" className="flex items-center gap-2">
-                  <Smartphone className="size-3" />
+                <Label htmlFor="preset" className="text-xs font-semibold px-1 flex items-center gap-2">
                   {t('settings.presets.label')}
                 </Label>
                 <Select disabled>
-                  <SelectTrigger id="preset">
+                  <SelectTrigger id="preset" className="w-full">
                     <SelectValue placeholder={t('settings.presets.placeholder')} />
                   </SelectTrigger>
                   <SelectContent>
@@ -162,11 +161,11 @@ export function SettingsDialogComponent() {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="compression">{t('settings.compression.label')}</Label>
-                <div className="flex gap-2 p-1 bg-muted/50 rounded-lg">
-                  <Button variant="ghost" size="sm" className="flex-1 text-xs" disabled>{t('settings.compression.low')}</Button>
-                  <Button variant="secondary" size="sm" className="flex-1 text-xs font-bold" disabled>{t('settings.compression.medium')}</Button>
-                  <Button variant="ghost" size="sm" className="flex-1 text-xs" disabled>{t('settings.compression.high')}</Button>
+                <Label htmlFor="compression" className="text-xs font-semibold px-1">{t('settings.compression.label')}</Label>
+                <div className="flex gap-1 p-1 bg-muted/50 rounded-full">
+                  <Button variant="ghost" size="sm" className="flex-1 text-[10px] h-7 rounded-full" disabled>{t('settings.compression.low')}</Button>
+                  <Button variant="secondary" size="sm" className="flex-1 text-[10px] h-7 font-bold rounded-full bg-background shadow-sm" disabled>{t('settings.compression.medium')}</Button>
+                  <Button variant="ghost" size="sm" className="flex-1 text-[10px] h-7 rounded-full" disabled>{t('settings.compression.high')}</Button>
                 </div>
               </div>
             </div>

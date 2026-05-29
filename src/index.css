@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: "Geist Sans", "Inter", system-ui, sans-serif;
+  --font-heading: "Geist Sans", "Inter", system-ui, sans-serif;
   --font-mono: "Geist Mono", "JetBrains Mono", monospace;
   
   --color-background: var(--background);
@@ -24,24 +25,34 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   
-  --color-brand: #6366f1; /* Indigo 500 para um look premium */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
 
-  /* Status Colors - Refined for both themes */
+  /* File Type Colors */
+  --color-file-pdf: var(--file-pdf);
+  --color-file-pdf-foreground: var(--file-pdf-foreground);
+  
+  --color-file-epub: var(--file-epub);
+  --color-file-epub-foreground: var(--file-epub-foreground);
+  
+  --color-file-cbz: var(--file-cbz);
+  --color-file-cbz-foreground: var(--file-cbz-foreground);
+  
+  --color-file-zip: var(--file-zip);
+  --color-file-zip-foreground: var(--file-zip-foreground);
+
+  /* Status Colors */
   --color-status-pending: var(--status-pending);
   --color-status-pending-foreground: var(--status-pending-foreground);
-  --color-status-pending-border: var(--status-pending-border);
   
   --color-status-processing: var(--status-processing);
   --color-status-processing-foreground: var(--status-processing-foreground);
-  --color-status-processing-border: var(--status-processing-border);
   
   --color-status-completed: var(--status-completed);
   --color-status-completed-foreground: var(--status-completed-foreground);
-  --color-status-completed-border: var(--status-completed-border);
   
   --color-status-error: var(--status-error);
   --color-status-error-foreground: var(--status-error-foreground);
-  --color-status-error-border: var(--status-error-border);
 
   --radius-4xl: 2rem;
   --radius-3xl: 1.5rem;
@@ -54,8 +65,7 @@
 
 @layer base {
   :root {
-    /* Soft Light Mode - Eye Comfort (#f9f9fb) */
-    --background: #f9f9fb;
+    --background: #ffffff;
     --foreground: #09090b;
     --card: #ffffff;
     --card-foreground: #09090b;
@@ -69,33 +79,45 @@
     --muted-foreground: #71717a;
     --accent: #f4f4f5;
     --accent-foreground: #18181b;
-    --destructive: #ef4444;
-    --destructive-foreground: #fafafa;
+    --destructive: #dc2626; /* Vibrant Red 600 */
+    --destructive-foreground: #ffffff;
     --border: #e4e4e7;
     --input: #e4e4e7;
-    --ring: #18181b;
-    --radius: 0.6rem;
+    --ring: #6366f1;
+    --radius: 0.75rem;
 
-    /* Status Colors - Light Mode (Premium desaturated) */
+    /* Brand - Indigo 600 for better contrast in Light Mode */
+    --brand: #4f46e5;
+    --brand-foreground: #ffffff;
+
+    /* File Types - Light Mode */
+    --file-pdf: #fee2e2;
+    --file-pdf-foreground: #dc2626;
+    
+    --file-epub: #e0e7ff;
+    --file-epub-foreground: #4f46e5;
+    
+    --file-cbz: #fef3c7;
+    --file-cbz-foreground: #d97706;
+    
+    --file-zip: #f1f5f9;
+    --file-zip-foreground: #475569;
+
+    /* Status - Light Mode */
     --status-pending: #f4f4f5;
     --status-pending-foreground: #71717a;
-    --status-pending-border: #e4e4e7;
     
-    --status-processing: #eef2ff;
+    --status-processing: #e0e7ff;
     --status-processing-foreground: #4f46e5;
-    --status-processing-border: #c7d2fe;
     
-    --status-completed: #ecfdf5;
+    --status-completed: #d1fae5;
     --status-completed-foreground: #059669;
-    --status-completed-border: #a7f3d0;
     
-    --status-error: #fef2f2;
+    --status-error: #fee2e2;
     --status-error-foreground: #dc2626;
-    --status-error-border: #fecaca;
   }
 
   .dark {
-    /* Deep Dark Mode - Studio Zinc (#09090b) */
     --background: #09090b;
     --foreground: #fafafa;
     --card: #111113;
@@ -110,28 +132,41 @@
     --muted-foreground: #a1a1aa;
     --accent: #18181b;
     --accent-foreground: #fafafa;
-    --destructive: #7f1d1d;
-    --destructive-foreground: #fafafa;
+    --destructive: #ef4444; /* Vibrant Red 500 for Dark Mode */
+    --destructive-foreground: #ffffff;
     --border: #1e1e21;
     --input: #1e1e21;
-    --ring: #3f3f46;
+    --ring: #818cf8;
 
-    /* Status Colors - Dark Mode (Glow Effect) */
+    /* Brand - Indigo 500 for Dark Mode */
+    --brand: #6366f1;
+    --brand-foreground: #ffffff;
+
+    /* File Types - Dark Mode (Subtle glow) */
+    --file-pdf: rgba(239, 68, 68, 0.1);
+    --file-pdf-foreground: #f87171;
+    
+    --file-epub: rgba(99, 102, 241, 0.1);
+    --file-epub-foreground: #818cf8;
+    
+    --file-cbz: rgba(245, 158, 11, 0.1);
+    --file-cbz-foreground: #fbbf24;
+    
+    --file-zip: rgba(100, 116, 139, 0.1);
+    --file-zip-foreground: #94a3b8;
+
+    /* Status - Dark Mode */
     --status-pending: #18181b;
     --status-pending-foreground: #a1a1aa;
-    --status-pending-border: #27272a;
     
     --status-processing: rgba(99, 102, 241, 0.15);
     --status-processing-foreground: #818cf8;
-    --status-processing-border: rgba(99, 102, 241, 0.3);
     
     --status-completed: rgba(16, 185, 129, 0.1);
     --status-completed-foreground: #34d399;
-    --status-completed-border: rgba(16, 185, 129, 0.2);
     
     --status-error: rgba(239, 68, 68, 0.1);
     --status-error-foreground: #f87171;
-    --status-error-border: rgba(239, 68, 68, 0.2);
   }
 }
 
@@ -140,7 +175,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
 }
+

@@ -25,34 +25,37 @@ export function ActionBarComponent() {
   if (filesCount === 0 && !isConverting) return null;
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md border-t border-border flex items-center px-4">
+    <footer className="fixed bottom-0 left-0 right-0 z-50 h-20 bg-background/80 backdrop-blur-md border-t border-border flex items-center px-4">
       <div className="max-w-4xl mx-auto w-full flex justify-between items-center gap-4">
-        <div className="text-sm text-muted-foreground font-sans">
-          {t('actions.queue_summary', { count: filesCount, size: totalSize }).split('•').map((part, i) => (
-            <span key={i} className={cn(i === 0 || i === 1 ? "font-mono" : "")}>
-              {part}{i === 0 ? " • " : ""}
-            </span>
-          ))}
+        <div className="flex flex-col">
+          <div className="text-xs text-muted-foreground font-mono uppercase tracking-widest mb-0.5">
+            {t('queue.title')}
+          </div>
+          <div className="text-sm font-semibold text-foreground flex items-center gap-1.5">
+            <span className="text-brand">{filesCount}</span>
+            <span className="text-muted-foreground font-normal">files</span>
+            <span className="text-border mx-1">|</span>
+            <span className="text-brand">{totalSize}</span>
+          </div>
         </div>
         
         <Button 
-          variant={isConverting ? "outline" : "default"}
+          variant={isConverting ? "destructive" : "brand"}
           disabled={filesCount === 0 && !isConverting}
+          size="lg"
           className={cn(
-            "gap-2 font-semibold shadow-sm transition-all duration-300 min-w-40",
-            isConverting 
-              ? "border-destructive/50 text-destructive hover:bg-destructive/10 animate-pulse" 
-              : "bg-brand hover:bg-brand/90 text-white"
+            "gap-2 font-bold px-8 shadow-indigo-500/20 shadow-lg transition-all duration-300 min-w-44 rounded-full",
+            isConverting && "animate-pulse"
           )}
         >
           {isConverting ? (
             <>
-              <X className="h-4 w-4" />
+              <X className="size-5" />
               {t('actions.cancel')}
             </>
           ) : (
             <>
-              <Play className="h-4 w-4 fill-current" />
+              <Play className="size-5 fill-current" />
               {t('actions.convert', { count: filesCount })}
             </>
           )}

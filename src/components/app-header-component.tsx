@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GitHubIcon } from "./github-icon-component";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { useTranslation } from "react-i18next";
 import { SettingsDialogComponent } from "./settings-dialog-component";
 
@@ -24,8 +24,14 @@ export function AppHeaderComponent() {
         <div className="flex items-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon-lg" onClick={handleGithubClick} className="cursor-pointer">
-                <GitHubIcon className="h-7 w-auto" />
+              <Button 
+                variant="ghost" 
+                size="icon-lg" 
+                onClick={handleGithubClick}
+                className="group"
+              >
+                <GitHubLogoIcon className="size-5 text-foreground transition-colors duration-200 group-hover:text-brand" />
+                
                 <span className="sr-only">{t('app.github')}</span>
               </Button>
             </TooltipTrigger>
